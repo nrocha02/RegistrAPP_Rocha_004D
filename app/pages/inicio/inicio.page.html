@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="mostrarMenu()">
+          <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-img class="logoduoc" src="assets/elementos-ui/logo_duoc_uc.svg"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="8">
+        <ion-button class="btn"[routerLink]="['/login']" expand="block" shape="round">
+          Iniciar Sesión
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="8">
+        <ion-button class="btn" [routerLink]="['/registro']" expand="block" shape="round">
+          Registrase
+  </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-img class="logoacred" src="assets/elementos-ui/logo_acred.svg"></ion-img>
+  </ion-toolbar>
+</ion-footer>
