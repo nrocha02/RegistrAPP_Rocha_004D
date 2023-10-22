@@ -1,20 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { Component, OnInit } from "@angular/core";
+import { MenuController } from "@ionic/angular";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.page.html',
-  styleUrls: ['./inicio.page.scss'],
+  selector: "app-inicio",
+  templateUrl: "./inicio.page.html",
+  styleUrls: ["./inicio.page.scss"],
 })
 export class InicioPage implements OnInit {
+  constructor(
+    private menuController: MenuController,
+    private authService: AuthService
+  ) {}
 
-  constructor(private menuController: MenuController) {}
+  usuario = this.authService.GetName();
 
-  ngOnInit() {
+  estaLoggeado = this.authService.IsLoggedIn();
+
+  cerrarSesion() {
+    this.authService.logout();
   }
 
-  mostrarMenu(){
-  this.menuController.open('first');
-  }
+  ngOnInit() {}
 
+  mostrarMenu() {
+    this.menuController.open("first");
+  }
 }
