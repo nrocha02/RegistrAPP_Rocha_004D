@@ -3,6 +3,10 @@ export interface UsersProfesores {
   nombre: String;
   email: String;
   password: String;
+  asignaturas: Array<String>;
+  anno: Number;
+  semestre: Number;
+  hrs: Number;
   role: String;
   isactive: Boolean;
 }
