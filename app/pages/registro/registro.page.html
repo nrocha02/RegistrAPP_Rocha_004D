@@ -51,6 +51,16 @@
             required
           ></ion-input>
         </ion-item>
+
+        <ion-item lines="full">
+          <ion-label>Asignaturas que imparte:</ion-label>
+          <ion-checkbox
+            *ngFor="let asignatura of asignaturas"
+            [(ngModel)]="asignatura.selected"
+            >{{ asignatura.nombre }}</ion-checkbox
+          >
+        </ion-item>
+
         <ion-row>
           <ion-col>
             <ion-button (click)="crearProfesor()" expand="block" color="primary"

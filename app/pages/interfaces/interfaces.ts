@@ -3,10 +3,7 @@ export interface UsersProfesores {
   nombre: String;
   email: String;
   password: String;
-  asignaturas: Array<String>;
-  anno: Number;
-  semestre: Number;
-  hrs: Number;
+  asignaturas: String[];
   role: String;
   isactive: Boolean;
 }
@@ -15,6 +12,7 @@ export interface UserProfesor {
   nombre: String;
   email: String;
   password: String;
+  asignaturas: String[];
   role: String;
   isactive: Boolean;
 }
@@ -25,6 +23,7 @@ export interface IAsignaturas {
   anno: Number;
   semestre: Number;
   hrsSemanal: Number;
+  selected: Boolean;
 }
 
 export interface IFeriados {
