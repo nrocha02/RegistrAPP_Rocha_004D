@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
+import { AutorizadoGuard } from "./guards/autorizado.guard";
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
     path: "info",
     loadChildren: () =>
       import("./pages/info/info.module").then((m) => m.InfoPageModule),
+    canActivate: [AutorizadoGuard],
   },
 ];
 
