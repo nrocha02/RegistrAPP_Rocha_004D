@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>feriados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let feriado of feriados">
+      <ion-label>{{ feriado['title'] }}</ion-label>
+      <ion-note slot="end">{{ feriado['date'] }}</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

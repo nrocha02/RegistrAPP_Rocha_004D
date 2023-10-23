@@ -16,10 +16,10 @@ Ionic 6:
 npm install -g @ionic/cli@6
 ```
 
-Angular:
+Angular 16.1:
 
 ```
-npm install -g @angular/cli
+npm install -g @angular/cli@16.1
 ```
 
 # Aplicaciones adicionales

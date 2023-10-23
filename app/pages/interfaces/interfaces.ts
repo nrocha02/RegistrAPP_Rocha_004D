@@ -23,7 +23,7 @@ export interface IAsignaturas {
   hrsSemanal: Number;
 }
 
-export interface RespuestaFeriados {
+export interface IFeriados {
   date: String;
   title: String;
   type: String;

@@ -31,6 +31,14 @@ const routes: Routes = [
       import("./pages/info/info.module").then((m) => m.InfoPageModule),
     canActivate: [AutorizadoGuard],
   },
+  {
+    path: "feriados",
+    loadChildren: () =>
+      import("./pages/feriados/feriados.module").then(
+        (m) => m.FeriadosPageModule
+      ),
+    canActivate: [AutorizadoGuard],
+  },
 ];
 
 @NgModule({
