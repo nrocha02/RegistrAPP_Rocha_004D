@@ -1,9 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button
-      defaultHref="/"
-      ></ion-back-button>
+      <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -17,43 +15,49 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title style="text-align: center;">Registro</ion-card-title>
+      <ion-card-title style="text-align: center">Registro</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <form>
-        <ion-list>
-          <ion-item>
-            <ion-label position="floating">Nombre: </ion-label>
-            <ion-input type="text" placeholder="Ingrese su Nombre"
-                      name="Nombre" [(ngModel)]="usuario.nombre"required></ion-input>
-          </ion-item>
-          
-          <ion-item>
-            <ion-label position="floating">Email: </ion-label>
-            <ion-input type="text" placeholder="Ingrese su Email"
-                      name="Email" [(ngModel)]="usuario.email"required></ion-input>
-          </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Nombre:</ion-label>
+          <ion-input
+            type="text"
+            name="txtNombre"
+            [(ngModel)]="newProfesor.nombre"
+            placeholder="Ingrese nombre"
+            required
+          ></ion-input>
+        </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Contraseña: </ion-label>
-            <ion-input type="text" placeholder="Ingrese su Contraseña"
-                      name="Password" [(ngModel)]="usuario.password"required></ion-input>
-          </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Email:</ion-label>
+          <ion-input
+            type="text"
+            name="txtEmail"
+            [(ngModel)]="newProfesor.email"
+            placeholder="Ingrese email"
+            required
+          ></ion-input>
+        </ion-item>
 
-          <br>
-        </ion-list>
-        
-        <ion-grid>
-          <ion-row class="ion-justify-content-center">
-            <ion-col size="8">
-              <ion-button (click)="Enviar()" expand="block" fill="clear" shape="round">
-                Registrarse
-        </ion-button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-        
-        
+        <ion-item lines="full">
+          <ion-label position="floating">Contraseña:</ion-label>
+          <ion-input
+            type="password"
+            name="txtPassword"
+            [(ngModel)]="newProfesor.password"
+            placeholder="Ingrese contraseña"
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="crearProfesor()" expand="block" color="success"
+              >Crear Profesor</ion-button
+            >
+          </ion-col>
+        </ion-row>
       </form>
     </ion-card-content>
   </ion-card>

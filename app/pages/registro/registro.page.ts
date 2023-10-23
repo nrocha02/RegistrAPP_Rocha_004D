@@ -1,41 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { ApiCrudService } from "src/app/services/api-crud.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.page.html',
-  styleUrls: ['./registro.page.scss'],
+  selector: "app-registro",
+  templateUrl: "./registro.page.html",
+  styleUrls: ["./registro.page.scss"],
 })
 export class RegistroPage implements OnInit {
-
-  usuario = {
-    nombre: '',
-    email: '',
-    password: '',
+  newProfesor = {
+    nombre: "",
+    email: "",
+    password: "",
+    role: "usuario",
+    isactive: true,
   };
 
-  constructor(private alertController: AlertController, private router: Router) { }
-  ngOnInit() {
-    
-  }
+  constructor(private apiCrud: ApiCrudService, private router: Router) {}
+  ngOnInit() {}
 
-  async mostrarMensaje() {
-    const alert = await this.alertController.create({
-      header: '¡Gracias!',
-      message: '¡Sus datos han sido enviados!',
-      buttons: ['OK'],
-    });
-    this.router.navigate(['/inicio']);
-    await alert.present();
+  crearProfesor() {
+    this.apiCrud.CrearProfesor(this.newProfesor).subscribe();
+    this.router.navigateByUrl("/inicio");
   }
-
-  Enviar() {
-    this.mostrarMensaje();
-    this.usuario.nombre = '';
-    this.usuario.email = '';
-    this.usuario.password = '';
-  }
- 
-
 }

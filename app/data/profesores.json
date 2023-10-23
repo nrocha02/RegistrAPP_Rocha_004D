@@ -1,29 +1,90 @@
 {
-    "profesores": [
-        {
-            "id": 1,
-            "nombre": "Nico",
-            "email": "nico.rocha@profesor.duoc.cl",
-            "password": "hola123",
-            "role": "usuario",
-            "isactive": true
-        },
-        {
-            "id": 2,
-            "nombre": "Rafael",
-            "email": "rafa.rocha@profesor.duoc.cl",
-            "password": "chao321",
-            "role": "usuario",
-            "isactive": true
-        },
-        {
-            "id": 3,
-            "nombre": "Felipe",
-            "email": "felipe.rocha@profesor.duoc.cl",
-            "password": "12345",
-            "role": "usuario",
-            "isactive": true
-        }
-
-    ]
+  "profesores": [
+    {
+      "id": 1,
+      "nombre": "Nico",
+      "email": "nico.rocha@profesor.duoc.cl",
+      "password": "hola123",
+      "role": "usuario",
+      "isactive": true
+    },
+    {
+      "id": 2,
+      "nombre": "Rafael",
+      "email": "rafa.rocha@profesor.duoc.cl",
+      "password": "chao321",
+      "role": "usuario",
+      "isactive": true
+    },
+    {
+      "id": 3,
+      "nombre": "Felipe",
+      "email": "felipe.rocha@profesor.duoc.cl",
+      "password": "12345",
+      "role": "usuario",
+      "isactive": true
+    },
+    {
+      "nombre": "aaaa",
+      "email": "dashbjkdashbjka",
+      "password": "dhbjiksa",
+      "id": 4
+    },
+    {
+      "nombre": "fdsdf",
+      "email": "fdsdfs",
+      "password": "dfsfsd",
+      "role": "usuario",
+      "isactive": "true",
+      "id": 5
+    },
+    {
+      "nombre": "dfsdfsdfs",
+      "email": "dfsdsfdsf",
+      "password": "fdsdsf",
+      "role": "usuario",
+      "isactive": true,
+      "id": 6
+    },
+    {
+      "nombre": "reqf",
+      "email": "fewqfeqw",
+      "password": "fewqqwef",
+      "role": "usuario",
+      "isactive": true,
+      "id": 7
+    },
+    {
+      "nombre": "111",
+      "email": "111",
+      "password": "1111",
+      "role": "usuario",
+      "isactive": true,
+      "id": 8
+    },
+    {
+      "id": 9,
+      "nombre": "21312123",
+      "email": "weqeqwqew",
+      "password": "qweqewqewqew",
+      "role": "usuario",
+      "isactive": true
+    }
+  ],
+  "asignaturas": [
+    {
+      "id": 1,
+      "nombre": "Programación de algoritmos",
+      "anno": 2023,
+      "semestre": 1,
+      "hrsSemanal": 10
+    },
+    {
+      "id": 2,
+      "nombre": "Ética para el trabajo",
+      "anno": 2023,
+      "semestre": 4,
+      "hrsSemanal": 2
+    }
+  ]
 }

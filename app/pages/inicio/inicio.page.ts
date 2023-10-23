@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MenuController } from "@ionic/angular";
 import { AuthService } from "src/app/services/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-inicio",
@@ -10,7 +11,8 @@ import { AuthService } from "src/app/services/auth.service";
 export class InicioPage implements OnInit {
   constructor(
     private menuController: MenuController,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   usuario = this.authService.GetName();
@@ -19,6 +21,7 @@ export class InicioPage implements OnInit {
 
   cerrarSesion() {
     this.authService.logout();
+    this.router.navigateByUrl("/inicio");
   }
 
   ngOnInit() {}

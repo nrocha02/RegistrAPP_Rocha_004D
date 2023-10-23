@@ -7,6 +7,14 @@ export interface UsersProfesores {
   isactive: Boolean;
 }
 
+export interface UserProfesor {
+  nombre: String;
+  email: String;
+  password: String;
+  role: String;
+  isactive: Boolean;
+}
+
 export interface IAsignaturas {
   id: Number;
   nombre: String;
