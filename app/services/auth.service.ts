@@ -25,7 +25,7 @@ export class AuthService {
 
   GetUserById(id: any): Observable<IUsersProfesores> {
     return this.httpClient.get<IUsersProfesores>(
-      `${environment.apiUrl}/profesores/?username=${id}`
+      `${environment.apiUrl}/profesores/?email=${id}`
     );
   }
 
