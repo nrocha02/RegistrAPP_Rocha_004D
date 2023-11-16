@@ -1,9 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
-import { UsersProfesores } from "../pages/interfaces/interfaces";
+import { IUsersProfesores, UserProfesor } from "../pages/interfaces/interfaces";
 import { Observable } from "rxjs";
-import { Route } from "@angular/router";
 
 @Injectable({
   providedIn: "root",
@@ -11,14 +10,21 @@ import { Route } from "@angular/router";
 export class AuthService {
   constructor(private httpClient: HttpClient) {}
 
-  GetAllUsers(): Observable<UsersProfesores> {
-    return this.httpClient.get<UsersProfesores>(
+  CrearUsuario(newUsuario: UserProfesor): Observable<UserProfesor> {
+    return this.httpClient.post<UserProfesor>(
+      `${environment.apiUrl}/profesores`,
+      newUsuario
+    );
+  }
+
+  GetAllUsers(): Observable<IUsersProfesores> {
+    return this.httpClient.get<IUsersProfesores>(
       `${environment.apiUrl}/profesores`
     );
   }
 
-  GetUserById(id: any): Observable<UsersProfesores> {
-    return this.httpClient.get<UsersProfesores>(
+  GetUserById(id: any): Observable<IUsersProfesores> {
+    return this.httpClient.get<IUsersProfesores>(
       `${environment.apiUrl}/profesores/?username=${id}`
     );
   }
@@ -41,7 +47,6 @@ export class AuthService {
     sessionStorage.removeItem("id");
     sessionStorage.removeItem("nombre");
     sessionStorage.removeItem("email");
-    sessionStorage.removeItem("userrole");
     sessionStorage.removeItem("ingresado");
   }
 }

@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
     nombre: "",
     email: "",
     password: "",
-    role: "",
+    asignaturas: [],
     isactive: true,
   };
 
@@ -58,39 +58,34 @@ export class LoginPage implements OnInit {
           this.userdata = resp;
           console.log(this.userdata);
           if (this.userdata.length > 0) {
-            //si cumple la condición el objeto trae datos
             this.usuario = {
-              //userdata llega en formato de arreglo
               id: this.userdata[0].id,
               nombre: this.userdata[0].nombre,
               email: this.userdata[0].email,
+              asignaturas: this.userdata[0].asignaturas,
               password: this.userdata[0].password,
-              role: this.userdata[0].role,
               isactive: this.userdata[0].isactive,
             };
             if (this.usuario.password === this.loginForm.value.password) {
               if (this.usuario.isactive) {
-                //iniciamos sesión del usuario
+                sessionStorage.setItem("id", this.usuario.id.toString());
                 sessionStorage.setItem("nombre", this.usuario.nombre);
                 sessionStorage.setItem("email", this.usuario.email);
-                sessionStorage.setItem("userrole", this.usuario.role);
                 sessionStorage.setItem("ingresado", "true");
                 this.router.navigateByUrl("/inicio");
               } else {
-                //en caso que el usuario no este activo
                 this.UserInactivo();
               }
             } else {
               this.Error();
             }
           } else {
-            //en caso que el usuario no exista
-            this.loginForm.reset();
             this.NoExiste();
+            this.loginForm.reset();
           }
         });
     }
-  } //login
+  }
   async showToast(msg: any) {
     const toast = await this.toastController.create({
       message: msg,
@@ -99,7 +94,6 @@ export class LoginPage implements OnInit {
     toast.present();
   }
 
-  //usuario Inactivo
   async UserInactivo() {
     const alerta = await this.alertController.create({
       header: "Usuario inactivo",
@@ -109,17 +103,14 @@ export class LoginPage implements OnInit {
     alerta.present();
   }
 
-  //Error en credenciales
   async Error() {
     const alerta = await this.alertController.create({
-      header: "Error..",
+      header: "Error",
       message: "Revise sus credenciales",
       buttons: ["OK"],
     });
     alerta.present();
   }
-
-  //alerta que indica cuando el usuario no existe
 
   async NoExiste() {
     const alerta = await this.alertController.create({

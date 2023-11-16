@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { UserProfesor } from "../pages/interfaces/interfaces";
+import { IAsignaturas } from "../pages/interfaces/interfaces";
 import { environment } from "src/environments/environment";
 
 @Injectable({
@@ -10,10 +10,9 @@ import { environment } from "src/environments/environment";
 export class ApiCrudService {
   constructor(private httpclient: HttpClient) {}
 
-  CrearProfesor(newProfesor: UserProfesor): Observable<UserProfesor> {
-    return this.httpclient.post<UserProfesor>(
-      `${environment.apiUrl}/profesores`,
-      newProfesor
+  GetUserById(id: any): Observable<IAsignaturas> {
+    return this.httpclient.get<IAsignaturas>(
+      `${environment.apiUrl}/asignaturas/?nombre=${id}`
     );
   }
 }

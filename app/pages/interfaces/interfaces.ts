@@ -1,10 +1,9 @@
-export interface UsersProfesores {
+export interface IUsersProfesores {
   id: Number;
   nombre: String;
   email: String;
   password: String;
-  asignaturas: String[];
-  role: String;
+  asignaturas: [];
   isactive: Boolean;
 }
 
@@ -12,8 +11,7 @@ export interface UserProfesor {
   nombre: String;
   email: String;
   password: String;
-  asignaturas: String[];
-  role: String;
+  asignaturas: [];
   isactive: Boolean;
 }
 

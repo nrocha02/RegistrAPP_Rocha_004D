@@ -1,13 +1,15 @@
 import { Component, OnInit } from "@angular/core";
-import { ApiCrudService } from "src/app/services/api-crud.service";
-import { Router } from "@angular/router";
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
+  FormControl,
   Validators,
 } from "@angular/forms";
-import { IAsignaturas } from "../interfaces/interfaces";
+import { AuthService } from "src/app/services/auth.service";
+import { AlertController } from "@ionic/angular";
+import { Router } from "@angular/router";
+import { UserProfesor } from "../interfaces/interfaces";
+import { ApiCrudService } from "src/app/services/api-crud.service";
 
 @Component({
   selector: "app-registro",
@@ -15,48 +17,61 @@ import { IAsignaturas } from "../interfaces/interfaces";
   styleUrls: ["./registro.page.scss"],
 })
 export class RegistroPage implements OnInit {
-  newProfesor = {
+  newUsers: UserProfesor = {
     nombre: "",
     email: "",
-    password: "",
-    role: "usuario",
     asignaturas: [],
+    password: "",
     isactive: true,
   };
 
-  asignaturas: IAsignaturas[] = [];
-
-  registerForm: FormGroup;
+  registroForm: FormGroup;
 
   constructor(
-    private apiCrud: ApiCrudService,
+    private authservice: AuthService,
+    private alertcontroller: AlertController,
     private router: Router,
-    private builder: FormBuilder
+    private fBuilder: FormBuilder,
+    private apicrud: ApiCrudService
   ) {
-    this.registerForm = this.builder.group({
+    this.registroForm = this.fBuilder.group({
       nombre: new FormControl("", [
         Validators.required,
-        Validators.minLength(4),
+        Validators.minLength(3),
       ]),
-      email: new FormControl("", [
-        Validators.required,
-        Validators.minLength(4),
-      ]),
+      email: new FormControl("", [Validators.required]),
       password: new FormControl("", [
         Validators.required,
-        Validators.minLength(4),
+        Validators.minLength(3),
       ]),
+      asignaturas: new FormControl([], [Validators.required]),
     });
   }
+
   ngOnInit() {}
 
-  crearProfesor() {
-    /*this.newProfesor.asignaturas = this.asignaturas
-      .filter((asignatura) => asignatura.selected)
-      .map((asignatura) => asignatura.nombre);*/
+  registrarUsuario() {
+    this.newUsers.nombre = this.registroForm.value.nombre;
+    this.newUsers.email = this.registroForm.value.email;
+    this.newUsers.password = this.registroForm.value.password;
+    this.newUsers.asignaturas = this.registroForm.value.asignaturas;
+    this.authservice.CrearUsuario(this.newUsers).subscribe();
+    this.router.navigateByUrl("/inicio");
+    this.Enviar();
+  }
 
-    this.apiCrud.CrearProfesor(this.newProfesor).subscribe(() => {
-      this.router.navigateByUrl("/inicio");
+  async MostrarMensaje() {
+    const alert = await this.alertcontroller.create({
+      header: "Registrado",
+      message: "Se ha registrado correctamente",
+      buttons: ["OK"],
     });
+
+    await alert.present();
+  }
+
+  Enviar() {
+    console.log("Usuario registrado");
+    this.MostrarMensaje();
   }
 }

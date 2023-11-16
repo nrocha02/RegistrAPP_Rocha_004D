@@ -18,56 +18,44 @@
       <ion-card-title style="text-align: center">Registro</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <form>
-        <ion-item lines="full">
-          <ion-label position="floating">Nombre:</ion-label>
+      <form [formGroup]="registroForm">
+        <ion-item>
+          <ion-label position="floating">Nombre: </ion-label>
           <ion-input
             type="text"
-            name="txtNombre"
-            [(ngModel)]="newProfesor.nombre"
-            placeholder="Ingrese nombre"
-            required
+            placeholder=""
+            formControlName="nombre"
           ></ion-input>
         </ion-item>
 
-        <ion-item lines="full">
-          <ion-label position="floating">Email:</ion-label>
+        <ion-item>
+          <ion-label position="floating">Email: </ion-label>
           <ion-input
-            type="text"
-            name="txtEmail"
-            [(ngModel)]="newProfesor.email"
-            placeholder="Ingrese email"
-            required
+            type="email"
+            placeholder="nombre.apellido@profesor.duoc.cl"
+            formControlName="email"
           ></ion-input>
         </ion-item>
 
-        <ion-item lines="full">
-          <ion-label position="floating">Contraseña:</ion-label>
-          <ion-input
-            type="password"
-            name="txtPassword"
-            [(ngModel)]="newProfesor.password"
-            placeholder="Ingrese contraseña"
-            required
-          ></ion-input>
+        <ion-item>
+          <ion-label position="floating">Password: </ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
         </ion-item>
 
-        <ion-item lines="full">
-          <ion-label>Asignaturas que imparte:</ion-label>
-          <ion-checkbox
-            *ngFor="let asignatura of asignaturas"
-            [(ngModel)]="asignatura.selected"
-            >{{ asignatura.nombre }}</ion-checkbox
-          >
-        </ion-item>
-
-        <ion-row>
-          <ion-col>
-            <ion-button (click)="crearProfesor()" expand="block" color="primary"
-              >Registrarse</ion-button
+        <ion-item>
+          <ion-label position="floating">Asignaturas: </ion-label>
+          <ion-select formControlName="asignaturas" [multiple]="true">
+            <ion-select-option value="Programación"
+              >Programación</ion-select-option
             >
-          </ion-col>
-        </ion-row>
+            <ion-select-option value="Inglés">Inglés</ion-select-option>
+            <ion-select-option value="Física">Física</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-button (click)="registrarUsuario()" expand="block" shape="round">
+          Crear Usuario
+        </ion-button>
       </form>
     </ion-card-content>
   </ion-card>
