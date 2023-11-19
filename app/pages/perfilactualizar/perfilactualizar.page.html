@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Actualizar </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Actualizar</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card> </ion-card>
+
+  <form>
+    <ion-item>
+      <ion-label>Nombre: </ion-label>
+      <ion-input
+        type="text"
+        name="txtUsername"
+        [(ngModel)]="profesor.nombre"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email: </ion-label>
+      <ion-input
+        type="email"
+        name="txtEmail"
+        [(ngModel)]="profesor.email"
+        disabled
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password: </ion-label>
+      <ion-input
+        type="password"
+        name="txtPass"
+        [(ngModel)]="profesor.password"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Asignatura: </ion-label>
+      <ion-select
+        name="txtRole"
+        [multiple]="true"
+        [(ngModel)]="profesor.asignaturas"
+      >
+        <ion-select-option value="Programación">Programación</ion-select-option>
+        <ion-select-option value="Inglés">Inglés</ion-select-option>
+        <ion-select-option value="Física">Física</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="ActualizarUsuario()"
+          >Actualizar Usuario</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

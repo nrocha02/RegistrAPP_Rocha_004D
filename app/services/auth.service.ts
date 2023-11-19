@@ -23,9 +23,22 @@ export class AuthService {
     );
   }
 
+  GetUserByEmail(email: any): Observable<IUsersProfesores> {
+    return this.httpClient.get<IUsersProfesores>(
+      `${environment.apiUrl}/profesores/?email=${email}`
+    );
+  }
+
   GetUserById(id: any): Observable<IUsersProfesores> {
     return this.httpClient.get<IUsersProfesores>(
-      `${environment.apiUrl}/profesores/?email=${id}`
+      `${environment.apiUrl}/profesores/?id=${id}`
+    );
+  }
+
+  ActualizarProfesor(usuario: any): Observable<IUsersProfesores> {
+    return this.httpClient.put<IUsersProfesores>(
+      `${environment.apiUrl}/profesores/${usuario.id}`,
+      usuario
     );
   }
 
@@ -44,9 +57,6 @@ export class AuthService {
   }
 
   logout() {
-    sessionStorage.removeItem("id");
-    sessionStorage.removeItem("nombre");
-    sessionStorage.removeItem("email");
-    sessionStorage.removeItem("ingresado");
+    sessionStorage.clear();
   }
 }

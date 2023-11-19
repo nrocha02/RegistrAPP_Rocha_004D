@@ -53,7 +53,7 @@ export class LoginPage implements OnInit {
   login() {
     if (this.loginForm.valid) {
       this.authservice
-        .GetUserById(this.loginForm.value.email)
+        .GetUserByEmail(this.loginForm.value.email)
         .subscribe((resp) => {
           this.userdata = resp;
           console.log(this.userdata);

@@ -55,6 +55,15 @@
         <ion-col size="8">
           <ion-button
             class="btn"
+            shape="round"
+            expand="block"
+            [routerLink]="['/perfil', numero]"
+          >
+            Perfil</ion-button
+          >
+
+          <ion-button
+            class="btn"
             (click)="cerrarSesion()"
             expand="block"
             shape="round"

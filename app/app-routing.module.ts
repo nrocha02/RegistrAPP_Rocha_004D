@@ -39,6 +39,24 @@ const routes: Routes = [
       ),
     canActivate: [AutorizadoGuard],
   },
+  {
+    path: "qr",
+    loadChildren: () =>
+      import("./pages/qr/qr.module").then((m) => m.QrPageModule),
+    canActivate: [AutorizadoGuard],
+  },
+  {
+    path: "perfil/:id",
+    loadChildren: () =>
+      import("./pages/perfil/perfil.module").then((m) => m.PerfilPageModule),
+  },
+  {
+    path: "perfilactualizar/:id",
+    loadChildren: () =>
+      import("./pages/perfilactualizar/perfilactualizar.module").then(
+        (m) => m.PerfilactualizarPageModule
+      ),
+  },
 ];
 
 @NgModule({

@@ -19,9 +19,15 @@ export class InicioPage implements OnInit {
 
   estaLoggeado = this.authService.IsLoggedIn();
 
+  numero: any;
+
+  ionViewWillEnter() {
+    this.numero = sessionStorage.getItem("id");
+  }
+
   cerrarSesion() {
     this.authService.logout();
-    this.router.navigateByUrl("/inicio");
+    this.router.navigateByUrl("/login");
   }
 
   ngOnInit() {}

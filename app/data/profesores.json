@@ -2,12 +2,13 @@
   "profesores": [
     {
       "id": 1,
-      "nombre": "Nico",
+      "nombre": "Nico Rocha",
       "email": "nico.rocha@profesor.duoc.cl",
-      "password": "hola123",
+      "password": "12345",
       "asignaturas": [
         "Programación",
-        "Inglés"
+        "Inglés",
+        "Física"
       ],
       "isactive": true
     },
@@ -22,6 +23,14 @@
       ],
       "password": "erwwerwer",
       "isactive": true
+    },
+    {
+      "nombre": "",
+      "email": "",
+      "asignaturas": [],
+      "password": "",
+      "isactive": true,
+      "id": 3
     }
   ],
   "asignatura": [
