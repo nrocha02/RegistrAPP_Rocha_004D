@@ -44,7 +44,7 @@ export class PerfilactualizarPage implements OnInit {
         nombre: resp[0].nombre,
         email: resp[0].email,
         password: resp[0].password,
-        asignaturas: resp[0].password,
+        asignaturas: resp[0].asignaturas,
         isactive: resp[0].isactive,
       };
     });

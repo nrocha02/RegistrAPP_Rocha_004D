@@ -31,3 +31,16 @@ export interface IFeriados {
   inalienable: Boolean;
   extra: String;
 }
+
+export interface IAsistencias {
+  id: Number;
+  docente: String;
+  asignatura: String;
+  fecha: Date;
+}
+
+export interface Asistencia {
+  docente: String;
+  asignatura: String;
+  fecha: Date;
+}

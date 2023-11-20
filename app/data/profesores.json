@@ -67,6 +67,14 @@
       "selected": false
     }
   ],
+  "asistencias": [
+    {
+      "id": 1,
+      "docente": "Nico",
+      "asignatura": "Programación",
+      "fecha": "19-11-2023"
+    }
+  ],
   "feriados": [
     {
       "date": "2023-01-01",

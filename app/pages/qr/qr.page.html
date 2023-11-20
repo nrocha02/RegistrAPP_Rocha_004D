@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>qr</ion-title>
+    <ion-title>QR</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,10 +8,19 @@
   <ion-card class="ion-text-center">
     <ion-card-content>
       <qrcode
-        [qrdata]="qrCodeString"
+        [qrdata]="qrCodeValue"
         [width]="256"
         [errorCorrectionLevel]="'M'"
       ></qrcode>
     </ion-card-content>
   </ion-card>
+
+  <ion-button
+    (click)="generarQR()"
+    expand="block"
+    color="primary"
+    shape="round"
+  >
+    Generar QR
+  </ion-button>
 </ion-content>

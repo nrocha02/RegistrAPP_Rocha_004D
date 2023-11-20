@@ -50,6 +50,10 @@ export class AuthService {
     return sessionStorage.getItem("nombre");
   }
 
+  GetAsignaturas() {
+    return sessionStorage.getItem("asignatuas");
+  }
+
   GetUserrole() {
     return sessionStorage.getItem("userrole") != null
       ? sessionStorage.getItem("userrole")?.toString()

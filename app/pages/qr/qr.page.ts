@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { QrService } from "src/app/services/qr.service";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-qr",
@@ -6,9 +8,28 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./qr.page.scss"],
 })
 export class QrPage implements OnInit {
-  qrCodeString = "This is a secret qr code message";
+  asignaturas = this.authService.GetAsignaturas();
 
-  constructor() {}
+  fechaActual = new Date();
+  formatoFecha = `${this.fechaActual.getFullYear()}-${
+    this.fechaActual.getMonth() + 1
+  }-${this.fechaActual.getDate()}`;
 
-  ngOnInit() {}
+  asistencia = {
+    docente: this.authService.GetName(),
+    asignatura: "",
+    fecha: this.formatoFecha,
+  };
+
+  qrCodeValue: string = "";
+
+  constructor(private qrservice: QrService, private authService: AuthService) {}
+
+  ngOnInit() {
+    this.generarQR();
+  }
+
+  generarQR() {
+    this.qrCodeValue = this.formatoFecha;
+  }
 }

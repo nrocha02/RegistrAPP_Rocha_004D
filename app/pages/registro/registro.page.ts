@@ -9,7 +9,6 @@ import { AuthService } from "src/app/services/auth.service";
 import { AlertController } from "@ionic/angular";
 import { Router } from "@angular/router";
 import { UserProfesor } from "../interfaces/interfaces";
-import { ApiCrudService } from "src/app/services/api-crud.service";
 
 @Component({
   selector: "app-registro",
@@ -31,8 +30,7 @@ export class RegistroPage implements OnInit {
     private authservice: AuthService,
     private alertcontroller: AlertController,
     private router: Router,
-    private fBuilder: FormBuilder,
-    private apicrud: ApiCrudService
+    private fBuilder: FormBuilder
   ) {
     this.registroForm = this.fBuilder.group({
       nombre: new FormControl("", [
