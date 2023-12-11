@@ -2,35 +2,32 @@
   "profesores": [
     {
       "id": 1,
-      "nombre": "Nico Rocha",
       "email": "nico.rocha@profesor.duoc.cl",
-      "password": "12345",
-      "asignaturas": [
-        "Programación",
-        "Inglés",
-        "Física"
-      ],
-      "isactive": true
+      "password": ""
     },
     {
       "id": 2,
       "nombre": "32413241",
-      "email": "ererwewr",
+      "email": "holaxd",
+      "password": "",
       "asignaturas": [
         "Programación",
         "Inglés",
         "Física"
       ],
-      "password": "erwwerwer",
       "isactive": true
     },
     {
-      "nombre": "",
-      "email": "",
-      "asignaturas": [],
-      "password": "",
-      "isactive": true,
-      "id": 3
+      "id": 6,
+      "nombre": "mimama",
+      "email": "aaaa@aaaa.com",
+      "password": "sisisisisi",
+      "asignaturas": [
+        "Programación",
+        "Inglés",
+        "Física"
+      ],
+      "isactive": true
     }
   ],
   "asignatura": [

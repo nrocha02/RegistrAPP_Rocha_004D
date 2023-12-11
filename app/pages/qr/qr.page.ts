@@ -8,20 +8,16 @@ import { AuthService } from "src/app/services/auth.service";
   styleUrls: ["./qr.page.scss"],
 })
 export class QrPage implements OnInit {
-  asignaturas = this.authService.GetAsignaturas();
+  qrCodeString: string = "";
 
   fechaActual = new Date();
   formatoFecha = `${this.fechaActual.getFullYear()}-${
     this.fechaActual.getMonth() + 1
   }-${this.fechaActual.getDate()}`;
 
-  asistencia = {
-    docente: this.authService.GetName(),
-    asignatura: "",
-    fecha: this.formatoFecha,
-  };
-
-  qrCodeValue: string = "";
+  fecha = this.formatoFecha;
+  asignaturas = this.authService.GetAsignaturas();
+  docente = this.authService.GetName();
 
   constructor(private qrservice: QrService, private authService: AuthService) {}
 
@@ -30,6 +26,6 @@ export class QrPage implements OnInit {
   }
 
   generarQR() {
-    this.qrCodeValue = this.formatoFecha;
+    this.qrCodeString = this.fecha + this.docente;
   }
 }

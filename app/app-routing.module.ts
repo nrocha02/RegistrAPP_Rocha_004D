@@ -57,6 +57,20 @@ const routes: Routes = [
         (m) => m.PerfilactualizarPageModule
       ),
   },
+  {
+    path: "olvidar-contra",
+    loadChildren: () =>
+      import("./pages/olvidar-contra/olvidar-contra.module").then(
+        (m) => m.OlvidarContraPageModule
+      ),
+  },
+  {
+    path: "nueva-contra/:id",
+    loadChildren: () =>
+      import("./pages/nueva-contra/nueva-contra.module").then(
+        (m) => m.NuevaContraPageModule
+      ),
+  },
 ];
 
 @NgModule({
