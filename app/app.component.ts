@@ -31,6 +31,11 @@ export class AppComponent {
       icon: "log-in-outline",
     },
     {
+      name: "Generar QR",
+      redirecTo: "/qr",
+      icon: "qr-code-outline",
+    },
+    {
       name: "Feriados",
       redirecTo: "/feriados",
       icon: "happy-outline",

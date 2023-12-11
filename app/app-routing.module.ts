@@ -43,7 +43,7 @@ const routes: Routes = [
     path: "qr",
     loadChildren: () =>
       import("./pages/qr/qr.module").then((m) => m.QrPageModule),
-    //canActivate: [AutorizadoGuard],
+    canActivate: [AutorizadoGuard],
   },
   {
     path: "perfil/:id",

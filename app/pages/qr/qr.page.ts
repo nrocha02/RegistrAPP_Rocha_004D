@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { QrService } from "src/app/services/qr.service";
 import { AuthService } from "src/app/services/auth.service";
 
 @Component({
@@ -22,7 +21,7 @@ export class QrPage implements OnInit {
   asignatura: string = "";
   docente = this.authService.GetName();
 
-  constructor(private qrservice: QrService, private authService: AuthService) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {}
 
